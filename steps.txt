@@ -1,0 +1,23 @@
+followed: http://michaelheap.com/getting-solarized-working-on-ubuntu/
+
+installing zsh, change shell with chsh: "sudo chsh -s /bin/zsh [user]"
+ran .dotfiles/scripts/bootstrap
+  doesn't seem to be running all the *.zsh files...
+
+add oh-my-zsh as submodule...
+  it includes fasd
+
+use tmux?
+GET A DIFFERENT THEME (that shows more of the current directory path)
+
+dotfiles installation instructions
+  install zsh
+  run scripts/bootstrap
+  follow http://michaelheap.com/getting-solarized-working-on-ubuntu/
+  fasd?
+  vim plugins?
+
+other sources
+  https://github.com/square/maximum-awesome
+  https://github.com/ryanb/dotfiles
+  https://github.com/robbyrussell/oh-my-zsh
