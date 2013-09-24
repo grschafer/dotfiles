@@ -5,5 +5,20 @@ syntax on
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
+set autoindent
+set list      			" show trailing whitespace
+set encoding=utf-8
+set listchars=tab:▸\ ,trail:▫
+set number    			" show line numbers
+set ruler     			" show where you are
+set ignorecase 			" case-insensitive search
+set smartcase 			" case-sensitive search if any caps
+set laststatus=2 		" always show statusline
+
 " keyboard shortcuts
 inoremap lkj <Esc>
+let mapleader = ','
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
