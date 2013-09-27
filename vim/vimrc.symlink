@@ -5,6 +5,12 @@ syntax on
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
+set tabstop=4			" default 4 space tab until I get
+set shiftwidth=4		" language.vim files for everything
+set expandtab
+
+set clipboard=unnamed		" use system clipboard for yank, etc.
+set incsearch			" search while typing
 set autoindent
 set list      			" show trailing whitespace
 set encoding=utf-8
