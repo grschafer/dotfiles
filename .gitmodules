@@ -1,9 +1,3 @@
-[submodule "vim.symlink/bundle/command-t"]
-	path = vim.symlink/bundle/command-t
-	url = git://git.wincent.com/command-t.git
-[submodule "vim.symlink/bundle/surround.vim"]
-	path = vim.symlink/bundle/surround.vim
-	url = https://github.com/tpope/vim-surround.git
-[submodule "vim.symlink/bundle/nerdcommenter"]
-	path = vim.symlink/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim.symlink/bundle/vundle"]
+       path = vim.symlink/bundle/vundle
+       url = https://github.com/gmarik/vundle.git
