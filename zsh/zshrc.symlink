@@ -38,33 +38,3 @@ do
 done
 
 unset config_files
-
-# color directories
-# http://michaelheap.com/getting-solarized-working-on-ubuntu/
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
-
-# allow jumping words with ctrl+arrows
-# http://blog.langly.org/2009/10/22/zsh-skipping-words/
-bindkey ";5D" backward-word
-bindkey ";5C" forward-word
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# fasd
-# activate fasd
-eval "$(fasd --init auto)"
-
-# more fasd shortcuts
-# https://github.com/clvv/fasd
-alias v='f -e vim' # quick opening files with vim
-alias m='f -e mplayer' # quick opening files with mplayer
-alias o='a -e xdg-open' # quick opening files with xdg-open
-
-# make Ctrl+S work in command-T
-# http://stackoverflow.com/questions/8616843/ctrl-s-is-not-working-as-a-horizontal-split-in-vim-when-using-commandt
-stty -ixon -ixoff
-
