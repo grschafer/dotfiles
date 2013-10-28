@@ -17,10 +17,11 @@ dotfiles installation instructions
   run scripts/bootstrap
   follow http://michaelheap.com/getting-solarized-working-on-ubuntu/
   fasd?
-  vim plugins?
+  vim plugins with vundle (:BundleInstall)
   install xsel from package manager
 
 other sources
   https://github.com/square/maximum-awesome
   https://github.com/ryanb/dotfiles
   https://github.com/robbyrussell/oh-my-zsh
+  https://github.com/gmarik/vundle

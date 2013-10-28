@@ -1,10 +1,37 @@
-execute pathogen#infect()
+set nocompatible               " be iMproved
+filetype off                   " required!
 
-syntax on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'python.vim'
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+" delimitMate options:
+" https://github.com/Raimondi/delimitMate/blob/master/doc/delimitMate.txt
+let delimitMate_expand_cr = 1 " inserts extra linebreak after cursor when opening brace
+
+
+" general options
 set tabstop=2			" default 2 space tab until I get
 set shiftwidth=2		" language.vim files for everything
 set expandtab

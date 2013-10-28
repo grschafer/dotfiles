@@ -2,3 +2,7 @@ sublime2/User/Package\ Control.sublime-settings
 sublime2/User/Package Control.last-run
 git/gitconfig.symlink
 vim.symlink/.netrwhist
+
+# ignore bundles installed by vundle, other than vundle itself
+vim.symlink/bundle/*
+!vim.symlink/bundle/vundle
