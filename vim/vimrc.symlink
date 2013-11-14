@@ -14,6 +14,8 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'python.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'wting/rust.vim'
 
 filetype plugin indent on     " required!
 "
