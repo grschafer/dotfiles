@@ -1,0 +1,31 @@
+---
+- name: download fasd
+  git: repo=git://github.com/clvv/fasd.git dest=/usr/local/fasd
+  sudo: yes
+
+- name: install fasd
+  command: make install chdir=/usr/local/fasd creates=/usr/local/bin/fasd
+  sudo: yes
+
+# http://michaelheap.com/getting-solarized-working-on-ubuntu/
+- name: install solarized color palette
+  script: solarized-palette
+
+- name: install solarized dircolors
+  shell: curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark > ~/.dircolors creates=~/.dircolors
+
+- name: download dotfiles repo
+  git: repo=git://github.com/grschafer/dotfiles.git dest=~/.dotfiles
+
+- name: replace name/email in bootstrap script
+  template: src=bootstrap.j2 dest=~/.dotfiles/script/bootstrap mode=0775 owner={{ user }} group={{ user }}
+
+- name: run bootstrap script
+  command: ./script/bootstrap chdir=~/.dotfiles
+
+- name: install vundle bundles
+  command: vim +BundleInstall +qall
+  remote_user: "{{ user }}"
+
+# TODO: install vundle, vim plugins
+# install ruby?

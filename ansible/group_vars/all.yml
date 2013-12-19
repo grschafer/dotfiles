@@ -1,0 +1,12 @@
+---
+user: greg
+fullname: Greg Schafer
+# generate password with
+#   openssl passwd -salt <salt> -1 <plaintext>
+#   can make salt with
+#     cat /dev/urandom | tr -cd 'A-z0-9' | head -c 8
+password: $1$yKaK4gDC$Z/.yuzOQvf96S.hYd3nhM/
+
+sudo_user: vagrant
+
+date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"

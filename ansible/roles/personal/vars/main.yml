@@ -1,0 +1,7 @@
+---
+# these already exist in group_vars/all.yml
+#user: greg
+#fullname: Greg Schafer
+#password: $1$UacSw3^b$dpx2EPXaYc0AC4TYjZeAP1
+
+email: grschafer@gmail.com

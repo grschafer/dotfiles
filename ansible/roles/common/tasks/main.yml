@@ -1,0 +1,45 @@
+---
+- name: install aptitude if not installed
+  command: apt-get install -y aptitude
+
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: upgrade the distro
+  apt: upgrade=yes
+
+- name: install required packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - build-essential
+    - zsh
+    - git
+    - vim
+    - tree
+    - curl
+    - wget
+    - gconf2
+    - tmux
+
+- name: create admin group
+  group: name=admin system=yes state=present
+
+# https://raymii.org/s/tutorials/Ansible_-_Sudo_Safety_and_Sanity_Checks.html
+- name: copy sudoers file for safety
+  command: cp -f /etc/sudoers /etc/sudoers.tmp
+
+- name: create sudoers file backup
+  command: cp -f /etc/sudoers "/etc/sudoers.{{ date }}.bak"
+
+- name: ensure admin group has passwordless sudo
+  lineinfile: 'dest=/etc/sudoers.tmp state=present regexp="^%admin" line="%admin ALL=(ALL) NOPASSWD: ALL"'
+
+- include: ssh.yml
+  when: "ansible_connection == 'local'"
+
+- name: final sudoers file check
+  shell: visudo -q -c -f /etc/sudoers.tmp && cp -f /etc/sudoers.tmp /etc/sudoers
+
+- name: make user with zsh shell
+  user: name={{ user }} comment="{{ fullname }}" shell=/bin/zsh password={{ password }} groups=admin,sudo
+

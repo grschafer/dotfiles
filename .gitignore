@@ -6,3 +6,5 @@ vim.symlink/.netrwhist
 # ignore bundles installed by vundle, other than vundle itself
 vim.symlink/bundle/*
 !vim.symlink/bundle/vundle
+
+.vagrant

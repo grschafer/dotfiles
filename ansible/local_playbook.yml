@@ -1,0 +1,13 @@
+---
+- name: update/install packages and add user
+  hosts: localhost
+  user: "{{ user }}"
+  sudo: yes
+  roles:
+    - common
+
+- name: install personal settings (shell/vim)
+  hosts: localhost
+  user: "{{ user }}"
+  roles:
+    - personal
