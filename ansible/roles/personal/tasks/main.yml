@@ -24,7 +24,7 @@
   command: ./script/bootstrap chdir=~/.dotfiles
 
 - name: install vundle bundles
-  command: vim +BundleInstall +qall
+  command: vim +PluginInstall +qall
   remote_user: "{{ user }}"
 
 # TODO: install vundle, vim plugins
