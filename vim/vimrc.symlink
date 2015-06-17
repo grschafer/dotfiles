@@ -1,37 +1,63 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'python.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'wting/rust.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'python.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'wting/rust.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 filetype plugin indent on     " required!
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" Put your non-Plugin stuff after this line
+
+
 
 " delimitMate options:
 " https://github.com/Raimondi/delimitMate/blob/master/doc/delimitMate.txt
 let delimitMate_expand_cr = 1 " inserts extra linebreak after cursor when opening brace
 
+" http://www.hacksrus.net/blog/2012/10/using-vims-ctrlp-plugin-with-rails-and-guard/
+" blocking some filetypes from ctrlp
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.woff,*.ttf,*.eot,*.svg,*.psd,*.png,*.gif,*.jpg,*.ogg,*.wav,*.mp3,*.pyc,.git/*,data/*
+" http://superuser.com/a/660318
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+  \ 'fallback': 'find %s -type f'
+  \ }
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir': '\v(\.git|tmp|data)',
+"  \ 'file': '\v\.(swp|swo|zip|pdf|psd|png|gif|jpg|ogg|wav|mp3|pyc|ttf|woff|eot|so)',
+"  \ }
 
 " general options
 set tabstop=2			" default 2 space tab until I get
@@ -57,3 +83,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
