@@ -38,3 +38,8 @@ do
 done
 
 unset config_files
+
+# http://virtualenvwrapper.readthedocs.org/en/latest/install.html#shell-startup-file
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
